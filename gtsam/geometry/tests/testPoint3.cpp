@@ -18,8 +18,10 @@
 #include <gtsam/base/Testable.h>
 #include <gtsam/base/numericalDerivative.h>
 #include <CppUnitLite/TestHarness.h>
+#include <sstream>
 
 using namespace gtsam;
+using namespace std;
 
 GTSAM_CONCEPT_TESTABLE_INST(Point3)
 GTSAM_CONCEPT_LIE_INST(Point3)
@@ -75,14 +77,14 @@ TEST( Point3, arithmetic) {
 }
 
 /* ************************************************************************* */
-TEST( Point3, equals) {
+TEST(Point3, equals) {
   CHECK(traits<Point3>::Equals(P,P));
   Point3 Q(0,0,0);
   CHECK(!traits<Point3>::Equals(P,Q));
 }
 
 /* ************************************************************************* */
-TEST( Point3, dot) {
+TEST(Point3, dot) {
   Point3 origin(0,0,0), ones(1, 1, 1);
   CHECK(origin.dot(Point3(1, 1, 0)) == 0);
   CHECK(ones.dot(Point3(1, 1, 0)) == 2);
@@ -154,7 +156,7 @@ TEST( Point3, cross2) {
 }
 
 //*************************************************************************
-TEST (Point3, normalize) {
+TEST(Point3, normalize) {
   Matrix actualH;
   Point3 point(1, -2, 3); // arbitrary point
   Point3 expected(point / sqrt(14.0));
@@ -189,7 +191,7 @@ double norm_proxy(const Point3& point) {
   return double(point.norm());
 }
 
-TEST (Point3, norm) {
+TEST(Point3, norm) {
   Matrix actualH;
   Point3 point(3,4,5); // arbitrary point
   double expected = sqrt(50);
@@ -203,7 +205,7 @@ double testFunc(const Point3& P, const Point3& Q) {
   return distance3(P, Q);
 }
 
-TEST (Point3, distance) {
+TEST(Point3, distance) {
   Point3 P(1., 12.8, -32.), Q(52.7, 4.9, -13.3);
   Matrix H1, H2;
   double d = distance3(P, Q, H1, H2);
@@ -213,6 +215,23 @@ TEST (Point3, distance) {
   DOUBLES_EQUAL(expectedDistance, d, 1e-5);
   EXPECT(assert_equal(numH1, H1, 1e-8));
   EXPECT(assert_equal(numH2, H2, 1e-8));
+}
+
+TEST(Point3, Print) {
+  Point3 p(11, 7, 91);
+
+  // redirect output to buffer so we can compare
+  stringstream buffer;
+  streambuf* old = cout.rdbuf(buffer.rdbuf());
+
+  cout << p;
+
+  // get output string and reset stdout
+  string actual = buffer.str();
+  cout.rdbuf(old);
+
+  string expected = "11  7 91";
+  CHECK_EQUAL(expected, actual);
 }
 
 /* ************************************************************************* */

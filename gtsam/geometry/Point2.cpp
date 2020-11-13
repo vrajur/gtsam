@@ -114,6 +114,12 @@ list<Point2> circleCircleIntersection(Point2 c1, double r1, Point2 c2,
 }
 
 /* ************************************************************************* */
+ostream &operator<<(ostream &os, const gtsam::Point2 &p) {
+  os << p.transpose();
+  return os;
+}
+
+/* ************************************************************************* */
 ostream &operator<<(ostream &os, const gtsam::Point2Pair &p) {
   os << p.first << " <-> " << p.second;
   return os;

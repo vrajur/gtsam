@@ -88,6 +88,13 @@ Point3Pair means(const std::vector<Point3Pair> &abPointPairs) {
 }
 
 /* ************************************************************************* */
+ostream &operator<<(ostream &os, const gtsam::Point3 &p) {
+  os << p.transpose();
+  return os;
+}
+
+
+/* ************************************************************************* */
 ostream &operator<<(ostream &os, const gtsam::Point3Pair &p) {
   os << p.first << " <-> " << p.second;
   return os;

@@ -238,6 +238,24 @@ TEST( Point2, circleCircleIntersection) {
 }
 
 /* ************************************************************************* */
+TEST(Point2, Print) {
+  Point2 p(11, 7);
+
+  // redirect output to buffer so we can compare
+  stringstream buffer;
+  streambuf* old = cout.rdbuf(buffer.rdbuf());
+
+  cout << p;
+
+  // get output string and reset stdout
+  string actual = buffer.str();
+  cout.rdbuf(old);
+
+  string expected = "11  7";
+  CHECK_EQUAL(expected, actual);
+}
+
+/* ************************************************************************* */
 int main () {
   TestResult tr;
   return TestRegistry::runAllTests(tr);
