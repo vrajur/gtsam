@@ -45,8 +45,8 @@ public:
       const KeyFormatter& keyFormatter = DefaultKeyFormatter) const override {
     Base::print(s);
     std::cout << "RotateFactor:]\n";
-    std::cout << "p: " << p_.transpose() << std::endl;
-    std::cout << "z: " << z_.transpose() << std::endl;
+    std::cout << "p: " << p_ << std::endl;
+    std::cout << "z: " << z_ << std::endl;
   }
 
   /// vector of errors returns 2D vector

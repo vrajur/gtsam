@@ -66,7 +66,7 @@ pair<Pose3, Vector3> GPSFactor::EstimateState(double t1, const Point3& NED1,
 //***************************************************************************
 void GPSFactor2::print(const string& s, const KeyFormatter& keyFormatter) const {
   cout << s << "GPSFactor2 on " << keyFormatter(key()) << "\n";
-  cout << "  GPS measurement: " << nT_.transpose() << endl;
+  cout << "  GPS measurement: " << nT_ << endl;
   noiseModel_->print("  noise model: ");
 }
 

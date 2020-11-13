@@ -29,7 +29,7 @@ void PreintegratedRotationParams::print(const string& s) const {
   cout << (s == "" ? s : s + "\n") << endl;
   cout << "gyroscopeCovariance:\n[\n" << gyroscopeCovariance << "\n]" << endl;
   if (omegaCoriolis)
-    cout << "omegaCoriolis = (" << omegaCoriolis->transpose() << ")" << endl;
+    cout << "omegaCoriolis = (" << *omegaCoriolis << ")" << endl;
   if (body_P_sensor) body_P_sensor->print("body_P_sensor");
 }
 
@@ -57,7 +57,7 @@ void PreintegratedRotation::resetIntegration() {
 void PreintegratedRotation::print(const string& s) const {
   cout << s;
   cout << "    deltaTij [" << deltaTij_ << "]" << endl;
-  cout << "    deltaRij.ypr = (" << deltaRij_.ypr().transpose() << ")" << endl;
+  cout << "    deltaRij.ypr = (" << deltaRij_.ypr() << ")" << endl;
 }
 
 bool PreintegratedRotation::equals(const PreintegratedRotation& other,

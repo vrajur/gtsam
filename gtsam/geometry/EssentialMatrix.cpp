@@ -118,7 +118,7 @@ ostream& operator <<(ostream& os, const EssentialMatrix& E) {
   Rot3 R = E.rotation();
   Unit3 d = E.direction();
   os.precision(10);
-  os << R.xyz().transpose() << " " << d.point3().transpose() << " ";
+  os << R.xyz() << " " << d.point3() << " ";
   return os;
 }
 

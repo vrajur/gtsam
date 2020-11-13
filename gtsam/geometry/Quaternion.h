@@ -161,7 +161,7 @@ struct traits<QUATERNION_TYPE> {
     std::cout << "Eigen::Quaternion: ";
     else
     std::cout << str << " ";
-    std::cout << q.vec().transpose() << std::endl;
+    std::cout << q.vec() << std::endl;
   }
   static bool Equals(const Q& q1, const Q& q2, double tol = 1e-8) {
     return Between(q1, q2).vec().array().abs().maxCoeff() < tol;

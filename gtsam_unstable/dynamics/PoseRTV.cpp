@@ -52,7 +52,7 @@ bool PoseRTV::equals(const PoseRTV& other, double tol) const {
 void PoseRTV::print(const string& s) const {
   cout << s << ":" << endl;
   gtsam::print((Vector)R().xyz(), "  R:rpy");
-  cout << "  T" << t().transpose() << endl;
+  cout << "  T" << t() << endl;
   gtsam::print((Vector)velocity(), "  V");
 }
 

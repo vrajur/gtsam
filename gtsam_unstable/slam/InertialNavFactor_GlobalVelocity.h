@@ -121,12 +121,12 @@ public:
         << keyFormatter(this->key3()) << ","
         << keyFormatter(this->key4()) << ","
         << keyFormatter(this->key5()) << "\n";
-    std::cout << "acc measurement: " << this->measurement_acc_.transpose() << std::endl;
-    std::cout << "gyro measurement: " << this->measurement_gyro_.transpose() << std::endl;
+    std::cout << "acc measurement: " << this->measurement_acc_ << std::endl;
+    std::cout << "gyro measurement: " << this->measurement_gyro_ << std::endl;
     std::cout << "dt: " << this->dt_ << std::endl;
-    std::cout << "gravity (in world frame): " << this->world_g_.transpose() << std::endl;
-    std::cout << "craft rate (in world frame): " << this->world_rho_.transpose() << std::endl;
-    std::cout << "earth's rotation (in world frame): " << this->world_omega_earth_.transpose() << std::endl;
+    std::cout << "gravity (in world frame): " << this->world_g_ << std::endl;
+    std::cout << "craft rate (in world frame): " << this->world_rho_ << std::endl;
+    std::cout << "earth's rotation (in world frame): " << this->world_omega_earth_ << std::endl;
     if(this->body_P_sensor_)
       this->body_P_sensor_->print("  sensor pose in body frame: ");
     this->noiseModel_->print("  noise model");

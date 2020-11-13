@@ -59,7 +59,7 @@ namespace gtsam {
       std::cout << s << "BiasedGPSFactor("
           << keyFormatter(this->key1()) << ","
           << keyFormatter(this->key2()) << ")\n"
-          << "  measured: " << measured_.transpose() << std::endl;
+          << "  measured: " << measured_ << std::endl;
       this->noiseModel_->print("  noise model: ");
     }
 

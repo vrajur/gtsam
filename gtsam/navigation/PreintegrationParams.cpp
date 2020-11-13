@@ -35,7 +35,7 @@ void PreintegrationParams::print(const string& s) const {
   if (omegaCoriolis && use2ndOrderCoriolis)
     cout << "Using 2nd-order Coriolis" << endl;
   if (body_P_sensor) body_P_sensor->print("    ");
-  cout << "n_gravity = (" << n_gravity.transpose() << ")" << endl;
+  cout << "n_gravity = (" << n_gravity << ")" << endl;
 }
 
 //------------------------------------------------------------------------------

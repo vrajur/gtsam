@@ -36,7 +36,7 @@ PreintegrationBase::PreintegrationBase(const boost::shared_ptr<Params>& p,
 //------------------------------------------------------------------------------
 ostream& operator<<(ostream& os, const PreintegrationBase& pim) {
   os << "    deltaTij " << pim.deltaTij_ << endl;
-  os << "    deltaRij.ypr = (" << pim.deltaRij().ypr().transpose() << ")" << endl;
+  os << "    deltaRij.ypr = (" << pim.deltaRij().ypr() << ")" << endl;
   os << "    deltaPij " << Point3(pim.deltaPij()) << endl;
   os << "    deltaVij " << Point3(pim.deltaVij()) << endl;
   os << "    gyrobias " << Point3(pim.biasHat_.gyroscope()) << endl;

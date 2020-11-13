@@ -114,7 +114,7 @@ void Similarity3::print(const std::string& s) const {
   std::cout << std::endl;
   std::cout << s;
   rotation().print("\nR:\n");
-  std::cout << "t: " << translation().transpose() << " s: " << scale() << std::endl;
+  std::cout << "t: " << translation() << " s: " << scale() << std::endl;
 }
 
 Similarity3 Similarity3::identity() {
@@ -271,8 +271,8 @@ Similarity3 Similarity3::Expmap(const Vector7& v, OptionalJacobian<7, 7> Hm) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Similarity3& p) {
-  os << "[" << p.rotation().xyz().transpose() << " "
-      << p.translation().transpose() << " " << p.scale() << "]\';";
+  os << "[" << p.rotation().xyz() << " " << p.translation() << " "
+     << p.scale() << "]\';";
   return os;
 }
 

@@ -67,9 +67,8 @@ public:
   void print(const std::string& s = "",
       const KeyFormatter& keyFormatter = DefaultKeyFormatter) const override {
     Base::print(s);
-    std::cout << "  EssentialMatrixFactor with measurements\n  ("
-        << vA_.transpose() << ")' and (" << vB_.transpose() << ")'"
-        << std::endl;
+    std::cout << "  EssentialMatrixFactor with measurements\n  (" << vA_
+              << ")' and (" << vB_ << ")'" << std::endl;
   }
 
   /// vector of errors returns 1D vector
@@ -140,9 +139,8 @@ public:
   void print(const std::string& s = "",
       const KeyFormatter& keyFormatter = DefaultKeyFormatter) const override {
     Base::print(s);
-    std::cout << "  EssentialMatrixFactor2 with measurements\n  ("
-        << dP1_.transpose() << ")' and (" << pn_.transpose()
-        << ")'" << std::endl;
+    std::cout << "  EssentialMatrixFactor2 with measurements\n  (" << dP1_
+              << ")' and (" << pn_ << ")'" << std::endl;
   }
 
   /*

@@ -25,7 +25,7 @@ namespace gtsam {
 /* ************************************************************************* */
 void Event::print(const std::string& s) const {
   std::cout << s << "{'time':" << time_
-            << ", 'location': " << location_.transpose() << "}";
+            << ", 'location': " << location_ << "}";
 }
 
 /* ************************************************************************* */

@@ -29,7 +29,7 @@ namespace gtsam {
 //------------------------------------------------------------------------------
 void PreintegratedAhrsMeasurements::print(const string& s) const {
   PreintegratedRotation::print(s);
-  cout << "biasHat [" << biasHat_.transpose() << "]" << endl;
+  cout << "biasHat [" << biasHat_ << "]" << endl;
   cout << " PreintMeasCov [ " << preintMeasCov_ << " ]" << endl;
 }
 
