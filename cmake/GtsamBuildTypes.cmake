@@ -170,6 +170,7 @@ if (NOT MSVC)
     # Add as public flag so all dependant projects also use it, as required
     # by Eigen to avid crashes due to SIMD vectorization:
     list_append_cache(GTSAM_COMPILE_OPTIONS_PUBLIC "-march=native")
+    list_append_cache(GTSAM_COMPILE_OPTIONS_PUBLIC "-mno-avx")
   endif()
 endif()
 
